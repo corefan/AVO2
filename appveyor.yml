@@ -1,0 +1,12 @@
+---
+version: 1.0.0.{build}
+os:
+  - Visual Studio 2013
+  - Visual Studio 2015
+  - Visual Studio 2017
+build_script:
+  - md _build
+  - cd _build
+  - cmake -A x64 -DENABLE_OPENMP=OFF -DOUTPUT_TIME_AND_POSITIONS=OFF ..
+  - ctest -C Release -VV -D Experimental .
+test: off
